@@ -18,8 +18,8 @@ export default function LoginPage() {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!authLoading && user) {
-      router.replace(profile?.is_admin ? '/admin' : '/dashboard')
+    if (!authLoading && user && profile) {
+      router.replace(profile.is_admin ? '/admin' : '/dashboard')
     }
   }, [user, profile, authLoading, router])
 

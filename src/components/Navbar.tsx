@@ -9,18 +9,16 @@ export default function Navbar() {
   const { user, profile, signOut } = useAuth()
   const router = useRouter()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-
-  if (user) return null
-
+ 
   const handleSignOut = async () => {
     await signOut()
     router.push('/')
   }
 
   return (
-    <nav className="border-b border-white/10 bg-[var(--dh-ink)] text-white">
+    <nav className="border-b border-white/10 bg-(--dh-ink) text-white">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4 md:px-8">
-        <a href="/" className="font-[family-name:var(--font-display)] text-lg font-semibold">
+        <a href="/" className="font-display text-lg font-semibold">
           Digital <span className="text-emerald-300">Heroes</span>
         </a>
 
@@ -56,7 +54,7 @@ export default function Navbar() {
               </a>
               <a
                 href="/auth/signup"
-                className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 px-4 py-2 text-sm font-semibold text-[var(--dh-ink)] transition hover:from-emerald-400 hover:to-teal-400"
+                className="rounded-xl bg-linear-to-r from-emerald-300 to-teal-300 px-4 py-2 text-sm font-semibold text-(--dh-ink) transition hover:from-emerald-400 hover:to-teal-400"
               >
                 Sign up
               </a>
@@ -75,7 +73,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="border-t border-white/10 bg-[var(--dh-ink)] px-5 py-4 md:hidden">
+        <div className="border-t border-white/10 bg-(--dh-ink) px-5 py-4 md:hidden">
           <div className="flex flex-col gap-4">
             <a href="/charities" className="text-sm text-white/70 transition hover:text-emerald-300">
               Charities
@@ -104,7 +102,7 @@ export default function Navbar() {
                 </a>
                 <a
                   href="/auth/signup"
-                  className="rounded-xl bg-gradient-to-r from-emerald-300 to-teal-300 px-4 py-2 text-sm font-semibold text-[var(--dh-ink)] transition hover:from-emerald-400 hover:to-teal-400"
+                  className="rounded-xl bg-linear-to-r from-emerald-300 to-teal-300 px-4 py-2 text-sm font-semibold text-(--dh-ink) transition hover:from-emerald-400 hover:to-teal-400"
                 >
                   Sign up
                 </a>

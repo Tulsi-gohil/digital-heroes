@@ -157,14 +157,21 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
     init()
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, next) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, next) => {
       setSession(next)
       setUser(next?.user ?? null)
+
       if (next?.user) {
-        setTimeout(() => ensureProfile(next.user), 0)
+        try {
+          await ensureProfile(next.user)
+        } catch (error) {
+          console.warn('Profile sync on auth state change failed:', error)
+          setProfile(null)
+        }
       } else {
         setProfile(null)
       }
+
       setLoading(false)
     })
 
