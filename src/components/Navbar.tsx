@@ -10,6 +10,8 @@ export default function Navbar() {
   const router = useRouter()
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
+  if (user) return null
+
   const handleSignOut = async () => {
     await signOut()
     router.push('/')

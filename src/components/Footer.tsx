@@ -1,4 +1,12 @@
+'use client'
+
+import { useAuth } from '@/contexts/AuthContext'
+
 export default function Footer() {
+  const { user } = useAuth()
+
+  if (user) return null
+
   return (
     <footer className="border-t border-white/10 bg-[var(--dh-ink)] py-12 text-white/50">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 md:flex-row md:justify-between md:px-8">
